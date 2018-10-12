@@ -13,10 +13,11 @@ conn = psycopg2.connect(dbname="pathwaysdos_dev", user="postgres",password="post
 
 
 
-for x in range(0, 10):
+for x in range(0, 1):
   status_id = fake.statusId()
   restrict_to_referrals = fake.restrictToReferrals()
-  open_all_hours = fake.openAllHours()
+  # open_all_hours = fake.openAllHours()
+  open_all_hours = 't'
   public_phone_number = fake.phone_number()
   non_public_phone_number = fake.phone_number()
   fax = fake.phone_number()
@@ -31,9 +32,12 @@ for x in range(0, 10):
   ods_code = 'todo'
   address = fake.address()
   town = fake.city_prefix() + fake.city_suffix()
-  postcode = fake.postcode()
-  easting = random.randint(400000,500000)
-  northing = random.randint(400000,500000)
+  #postcode = fake.postcode()
+  postcode = 'EX2 5SE'
+  #easting = random.randint(400000,500000)
+  #northing = random.randint(400000,500000)
+  easting = 294510
+  northing = 90111
   type_id = 7
   parent_id = 6
   sub_region_id = 6
@@ -57,7 +61,7 @@ for x in range(0, 10):
     + " Postcode: " + postcode
 
   cursor = conn.cursor()
-  query =  "INSERT INTO faker.services (statusid, restricttoreferrals, openallhours, publicphone, nonpublicphone, fax, email, web, createdby,  \
+  query =  "INSERT INTO pathwaysdos.services (statusid, restricttoreferrals, openallhours, publicphone, nonpublicphone, fax, email, web, createdby,  \
   publicreferralinstructions, telephonetriagereferralinstructions, name, odscode, address, town, postcode, easting, northing, typeid, uid, \
   modifiedby, subregionid, parentid) \
   VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
