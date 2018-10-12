@@ -5,6 +5,8 @@ class ServiceProvider(BaseProvider):
     restrict_to_referrals = ('f', 't')
     open_all_hours = ('f', 't')
     status_id =(1,2,3,4,5,6,7)
+    type_id = (3,4,5)
+
 
     def restrictToReferrals(self):
       return self.random_element(self.restrict_to_referrals)
@@ -14,3 +16,6 @@ class ServiceProvider(BaseProvider):
 
     def statusId(self):
       return self.random_element(self.status_id)
+
+    def typeId(self):
+       return self.random_element(self.type_id)
