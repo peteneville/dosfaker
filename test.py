@@ -34,10 +34,10 @@ for x in range(0, 10):
     + " Created by: " + `str(created_by)`
 
   cursor = conn.cursor()
-  query =  "INSERT INTO faker.services (name) VALUES (%s);"
-  data = (fake.name())
-
-  cursor.execute(query, [data])
+  query =  "INSERT INTO faker.services (statusid, restricttoreferrals, openallhours, publicphone, nonpublicphone, fax, email, web, createdby) \
+  VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);"
+  data = (status_id, restrict_to_referrals, open_all_hours, public_phone_number, non_public_phone_number, fax, email, url, created_by)
+  cursor.execute(query, data)
 
 cursor.close()
 conn.commit()
