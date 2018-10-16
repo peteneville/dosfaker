@@ -1,5 +1,5 @@
 # DoS Faker
-This project makes us of the Python Faker library (see https://github.com/joke2k/faker for further info).
+This project makes use of the Python Faker library (see https://github.com/joke2k/faker for further info).
 
 The purpose of this project is to generate a large amount of fake test data suitable for loading into the DoS postgres database.
 This project started as a hackday idea and will hopefully be worked on to completion.
